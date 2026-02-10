@@ -1,59 +1,100 @@
-# Portfolio
+# Portfolio Interactivo de Martina Tahir
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.4.
+Portfolio personal desarrollado con Angular 21 y diseño glassmorphism. Portfolio de desarrolladora frontend junior con animaciones GSAP, partículas flotantes y diseño 100% responsive.
 
-## Development server
+🌟 **[Ver Portfolio Online](https://portfoliotahirm.netlify.app/)**
 
-To start a local development server, run:
+## 🚀 Tecnologías Utilizadas
 
+- **Angular 21** - Framework principal
+- **SCSS** - Estilos avanzados con variables y mixins
+- **GSAP** - Animaciones y transiciones
+- **Glassmorphism** - Diseño moderno con efectos de cristal
+- **CSS Particles** - Efectos visuales interactivos
+- **TypeScript** - Tipado estático
+- **Responsive Design** - Compatible con todos los dispositivos
+
+## ✨ Características
+
+- ⚡ **Hero Section** con animación de escritura
+- 👤 **About** con timeline y logros
+- 🛠️ **Skills** con barras de progreso animadas
+- 💼 **Projects** con filtros interactivos
+- 📧 **Contact** con formulario y redes sociales
+- 🎨 **Glassmorphism** design consistente
+- 📱 **Fully responsive** para mobile, tablet y desktop
+
+## 🛠️ Instalación y Desarrollo
+
+### Prerrequisitos
+```bash
+Node.js >= 18
+npm >= 8
+```
+
+### Clonar el repositorio
+```bash
+git clone https://github.com/MartuTahir/Portfolio.git
+cd Portfolio
+```
+
+### Instalar dependencias
+```bash
+npm install
+```
+
+### Servidor de desarrollo
 ```bash
 ng serve
+# o
+npm start
 ```
+Abre tu navegador en `http://localhost:4200/`
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
+### Build de producción
 ```bash
 ng build
+# o  
+npm run build
+```
+Los archivos se generan en `dist/portfolio/browser/`
+
+## 📁 Estructura del Proyecto
+```
+src/
+├── app/
+│   ├── components/
+│   │   ├── navbar/       # Navegación principal
+│   │   ├── hero/         # Sección de presentación
+│   │   ├── about/        # Información personal
+│   │   ├── skills/       # Habilidades técnicas
+│   │   ├── projects/     # Portfolio de proyectos
+│   │   ├── contact/      # Formulario de contacto
+│   │   └── footer/       # Pie de página
+│   └── styles/
+│       ├── _variables.scss # Variables globales
+│       └── _mixins.scss    # Mixins reutilizables
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## 🎨 Sistema de Diseño
 
-## Running unit tests
+- **Colores principales**: Gradientes violeta/azul/rosa
+- **Glassmorphism**: Efectos de cristal con blur y transparencias
+- **Responsive breakpoints**: 576px, 768px, 992px, 1200px
+- **Animaciones**: GSAP para transiciones fluidas
+- **Tipografía**: Inter/system fonts
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## 🚀 Deploy
 
-```bash
-ng test
-```
+El portfolio está desplegado automáticamente en Netlify:
+- **URL**: https://portfoliotahirm.netlify.app/
+- **Auto-deploy**: Cada push a `main` se despliega automáticamente
 
-## Running end-to-end tests
+## 📞 Contacto
 
-For end-to-end (e2e) testing, run:
+- **Email**: tahirmartinanicole@gmail.com
+- **GitHub**: [MartuTahir](https://github.com/MartuTahir)
+- **LinkedIn**: [Martina Tahir](https://www.linkedin.com/in/martina-tahir-91169a266/)
 
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+⭐ **Made with Angular & 💜 by Martina Tahir**

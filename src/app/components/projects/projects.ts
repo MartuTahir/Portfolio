@@ -92,8 +92,8 @@ export class Projects {
       image: '💼',
       tags: ['Angular', 'GSAP', 'SCSS', 'Animations'],
       category: 'frontend',
-      github: '#',
-      demo: '#',
+      github: 'https://github.com/MartuTahir/Portfolio',
+      demo: 'https://portfoliotahirm.netlify.app/',
       featured: true
     },
     {
