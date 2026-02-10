@@ -1,0 +1,418 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.contact-section {
+  position: relative;
+  background: linear-gradient(180deg, rgba(236, 72, 153, 0.05) 0%, transparent 100%);
+
+  .section-header {
+    text-align: center;
+    margin-bottom: $spacing-3xl;
+
+    .section-badge {
+      display: inline-block;
+      padding: $spacing-xs $spacing-md;
+      background: rgba(236, 72, 153, 0.1);
+      border: 1px solid rgba(236, 72, 153, 0.2);
+      border-radius: $radius-full;
+      color: $accent-light;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: $spacing-md;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: $spacing-md;
+    }
+
+    .section-subtitle {
+      max-width: 600px;
+      margin: 0 auto;
+      color: $text-muted;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+  }
+
+  .contact-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .contact-info {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+    max-width: 900px;
+    margin: 0 auto;
+
+    @include respond-to('md') {
+      grid-template-columns: repeat(2, 1fr);
+      gap: $spacing-xl;
+    }
+
+    @include respond-to('lg') {
+      max-width: 800px;
+      gap: $spacing-2xl;
+    }
+
+    .glass-card {
+      @include glass(0.03, 10px);
+      padding: $spacing-xl;
+      border-radius: $radius-xl;
+      transition: all $transition-base;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: $gradient-primary;
+        opacity: 0;
+        transition: opacity $transition-base;
+      }
+
+      &:hover {
+        transform: translateY(-8px);
+        border-color: rgba(99, 102, 241, 0.3);
+        @include glow($primary);
+
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+
+    .info-card {
+      .info-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: $spacing-lg;
+        text-align: center;
+        background: $gradient-primary;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1.3;
+      }
+
+      .info-list {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-md;
+
+        .info-item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          gap: $spacing-md;
+          padding: $spacing-lg;
+          background: rgba(255, 255, 255, 0.03);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          border-radius: $radius-md;
+          transition: all $transition-base;
+
+          &:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(99, 102, 241, 0.3);
+            transform: translateY(-4px);
+
+            .info-icon {
+              transform: scale(1.15);
+              background: rgba(99, 102, 241, 0.25);
+            }
+          }
+
+          .info-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(99, 102, 241, 0.15);
+            border-radius: $radius-md;
+            color: $primary-light;
+            flex-shrink: 0;
+            transition: all $transition-base;
+
+            svg {
+              width: 22px;
+              height: 22px;
+            }
+          }
+
+          .info-details {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .info-label {
+              font-size: 0.7rem;
+              color: $text-muted;
+              margin-bottom: 6px;
+              text-transform: uppercase;
+              letter-spacing: 1px;
+              font-weight: 600;
+            }
+
+            .info-value {
+              font-size: 0.9rem;
+              color: $text-primary;
+              font-weight: 600;
+              text-decoration: none;
+              transition: color $transition-base;
+              word-break: break-word;
+              text-align: center;
+              line-height: 1.5;
+              display: block;
+
+              &:hover {
+                color: $primary-light;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .social-card {
+      .social-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: $spacing-lg;
+        text-align: center;
+        background: $gradient-accent;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1.3;
+      }
+
+      .social-links {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-sm;
+
+        .social-link {
+          display: flex;
+          align-items: center;
+          gap: $spacing-md;
+          padding: $spacing-sm $spacing-md;
+          background: rgba(255, 255, 255, 0.03);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          border-radius: $radius-md;
+          color: $text-secondary;
+          text-decoration: none;
+          transition: all $transition-base;
+          position: relative;
+          overflow: hidden;
+
+          &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: $gradient-primary;
+            opacity: 0;
+            transition: opacity $transition-base;
+          }
+
+          .social-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: $radius-md;
+            transition: all $transition-base;
+            flex-shrink: 0;
+
+            svg {
+              width: 20px;
+              height: 20px;
+              transition: transform $transition-base;
+              display: block;
+            }
+          }
+
+          .social-name {
+            font-size: 0.95rem;
+            font-weight: 600;
+          }
+
+          &:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(99, 102, 241, 0.3);
+            color: $primary-light;
+            transform: translateX(8px);
+
+            &::before {
+              opacity: 1;
+            }
+
+            .social-icon {
+              background: rgba(99, 102, 241, 0.2);
+              transform: scale(1.1);
+
+              svg {
+                transform: scale(1.1);
+              }
+            }
+          }
+        }
+      }
+    }
+
+
+  }
+
+
+
+
+
+}
+
+
+// Responsive adjustments
+@media (max-width: $breakpoint-md) {
+  .contact-section {
+    .contact-info {
+      gap: $spacing-lg;
+      max-width: 600px;
+
+      .glass-card {
+        padding: $spacing-lg;
+      }
+
+      .info-card .info-list .info-item {
+        padding: $spacing-md;
+        gap: $spacing-sm;
+
+        .info-icon {
+          width: 44px;
+          height: 44px;
+
+          svg {
+            width: 20px;
+            height: 20px;
+          }
+        }
+
+        .info-details {
+          .info-value {
+            font-size: 0.85rem;
+          }
+        }
+      }
+
+      .social-card .social-links .social-link {
+        padding: $spacing-sm $spacing-md;
+
+        .social-icon {
+          width: 38px;
+          height: 38px;
+
+          svg {
+            width: 19px;
+            height: 19px;
+          }
+        }
+
+        .social-name {
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .contact-section {
+    .section-header {
+      .section-badge {
+        font-size: 0.8rem;
+      }
+
+      .section-subtitle {
+        font-size: 1rem;
+      }
+    }
+
+    .contact-info {
+      gap: $spacing-md;
+      max-width: 100%;
+
+      .glass-card {
+        padding: $spacing-lg;
+      }
+
+      .info-card {
+        .info-title {
+          font-size: 1.1rem;
+        }
+
+        .info-list .info-item {
+          padding: $spacing-md;
+
+          .info-icon {
+            width: 42px;
+            height: 42px;
+
+            svg {
+              width: 20px;
+              height: 20px;
+            }
+          }
+
+          .info-details {
+            .info-label {
+              font-size: 0.65rem;
+            }
+
+            .info-value {
+              font-size: 0.85rem;
+            }
+          }
+        }
+      }
+
+      .social-card {
+        .social-title {
+          font-size: 1.1rem;
+        }
+
+        .social-links .social-link {
+          padding: $spacing-sm;
+
+          .social-icon {
+            width: 36px;
+            height: 36px;
+
+            svg {
+              width: 18px;
+              height: 18px;
+            }
+          }
+
+          .social-name {
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+  }
+}

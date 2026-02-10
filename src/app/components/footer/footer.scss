@@ -1,0 +1,8 @@
+@import '../../../styles/variables';
+
+.footer {
+  padding: $spacing-xl 0;
+  text-align: center;
+  color: $text-muted;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}

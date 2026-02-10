@@ -1,0 +1,64 @@
+<section id="skills" class="section skills-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">💪 Habilidades</span>
+      <h2 class="section-title">
+        <span class="gradient-text">Tecnologías & Herramientas</span>
+      </h2>
+      <p class="section-description">
+        Estas son las tecnologías con las que trabajo y las herramientas que domino para crear proyectos increíbles.
+      </p>
+    </div>
+
+    <div class="skills-grid">
+      @for (category of skillCategories; track category.title) {
+        <div class="skill-category fade-in-up">
+          <h3 class="category-title">{{ category.title }}</h3>
+          <div class="skills-list">
+            @for (skill of category.skills; track skill.name) {
+              <div class="skill-card glass-card">
+                <div class="skill-header">
+                  <div class="skill-info">
+                    <span class="skill-icon">{{ skill.icon }}</span>
+                    <span class="skill-name">{{ skill.name }}</span>
+                  </div>
+                  <span class="skill-level">{{ skill.level }}%</span>
+                </div>
+                <div class="progress-bar">
+                  <div
+                    class="progress-fill"
+                    [style.width.%]="skill.level"
+                    [style.background]="'linear-gradient(90deg, ' + skill.color + ', ' + skill.color + '88)'"
+                  ></div>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      }
+    </div>
+
+<!--     <div class="stats-container">
+      <div class="stat-card glass-card">
+        <div class="stat-icon">🚀</div>
+        <div class="stat-number">50+</div>
+        <div class="stat-label">Proyectos Completados</div>
+      </div>
+      <div class="stat-card glass-card">
+        <div class="stat-icon">⭐</div>
+        <div class="stat-number">5</div>
+        <div class="stat-label">Años de Experiencia</div>
+      </div>
+      <div class="stat-card glass-card">
+        <div class="stat-icon">💼</div>
+        <div class="stat-number">30+</div>
+        <div class="stat-label">Clientes Satisfechos</div>
+      </div>
+      <div class="stat-card glass-card">
+        <div class="stat-icon">☕</div>
+        <div class="stat-number">1000+</div>
+        <div class="stat-label">Tazas de Café</div>
+      </div>
+    </div> -->
+  </div>
+</section>

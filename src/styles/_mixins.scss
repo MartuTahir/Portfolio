@@ -1,0 +1,93 @@
+// Glassmorphism mixin
+@mixin glass($opacity: 0.05, $blur: 10px) {
+  background: rgba(255, 255, 255, $opacity);
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+// Gradient text
+@mixin gradient-text($gradient) {
+  background: $gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// Responsive breakpoints
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == "sm" {
+    @media (min-width: $breakpoint-sm) { @content; }
+  }
+  @if $breakpoint == "md" {
+    @media (min-width: $breakpoint-md) { @content; }
+  }
+  @if $breakpoint == "lg" {
+    @media (min-width: $breakpoint-lg) { @content; }
+  }
+  @if $breakpoint == "xl" {
+    @media (min-width: $breakpoint-xl) { @content; }
+  }
+  @if $breakpoint == "2xl" {
+    @media (min-width: $breakpoint-2xl) { @content; }
+  }
+}
+
+// Flex center
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Absolute center
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// Hover lift effect
+@mixin hover-lift {
+  transition: transform $transition-base, box-shadow $transition-base;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: $shadow-xl;
+  }
+}
+
+// Animated gradient background
+@mixin animated-gradient {
+  background: linear-gradient(-45deg, $primary, $accent, #8b5cf6, $primary-light);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+// Pulse animation
+@mixin pulse($color: $primary) {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+}
+
+// Glow effect
+@mixin glow($color: $primary) {
+  box-shadow: 0 0 20px rgba($color, 0.4),
+              0 0 40px rgba($color, 0.2);
+}

@@ -1,0 +1,367 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.projects-section {
+  position: relative;
+  background: linear-gradient(180deg, transparent 0%, rgba(139, 92, 246, 0.05) 100%);
+
+  .section-header {
+    text-align: center;
+    margin-bottom: $spacing-3xl;
+
+    .section-badge {
+      display: inline-block;
+      padding: $spacing-xs $spacing-md;
+      background: rgba(139, 92, 246, 0.1);
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      border-radius: $radius-full;
+      color: $tertiary-light;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: $spacing-md;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: $spacing-md;
+    }
+
+    .section-subtitle {
+      max-width: 600px;
+      margin: 0 auto;
+      color: $text-muted;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+  }
+
+  .filters-container {
+    display: flex;
+    justify-content: center;
+    gap: $spacing-md;
+    margin-bottom: $spacing-3xl;
+    flex-wrap: wrap;
+
+    .filter-btn {
+      display: flex;
+      align-items: center;
+      gap: $spacing-sm;
+      padding: $spacing-sm $spacing-lg;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: $radius-lg;
+      cursor: pointer;
+      transition: all $transition-base;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: $text-secondary;
+      backdrop-filter: blur(10px);
+
+      &:hover {
+        transform: translateY(-2px);
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(99, 102, 241, 0.3);
+        @include glow($primary);
+      }
+
+      &.active {
+        background: rgba(99, 102, 241, 0.1);
+        border-color: rgba(99, 102, 241, 0.3);
+        color: $primary-light;
+
+        .filter-icon {
+          transform: scale(1.1);
+        }
+      }
+
+      .filter-icon {
+        font-size: 1.25rem;
+        transition: transform $transition-base;
+      }
+    }
+  }
+
+  .featured-section {
+    margin-bottom: $spacing-3xl;
+
+    .featured-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: $spacing-sm;
+      font-size: 1.5rem;
+      margin-bottom: $spacing-xl;
+      color: $text-primary;
+
+      .star-icon {
+        animation: pulse 2s infinite;
+      }
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: $spacing-lg;
+
+      @include respond-to('md') {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include respond-to('lg') {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+
+    @include respond-to('md') {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to('lg') {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .project-card {
+    @include glass(0.03, 10px);
+    display: flex;
+    flex-direction: column;
+    padding: $spacing-xl;
+    border-radius: $radius-lg;
+    transition: all $transition-base;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: $gradient-primary;
+      opacity: 0;
+      transition: opacity $transition-base;
+    }
+
+    &:hover {
+      transform: translateY(-8px);
+      @include glow($primary);
+
+      &::before {
+        opacity: 1;
+      }
+
+      .project-icon {
+        transform: scale(1.15) rotate(5deg);
+      }
+    }
+
+    &.featured {
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      background: rgba(139, 92, 246, 0.02);
+
+      &::before {
+        background: $gradient-accent;
+      }
+
+      &:hover {
+        @include glow($tertiary);
+      }
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: $spacing-lg;
+
+      .project-icon {
+        font-size: 3rem;
+        transition: transform $transition-base;
+      }
+
+      .featured-badge {
+        padding: $spacing-xs $spacing-sm;
+        background: rgba(139, 92, 246, 0.15);
+        border: 1px solid rgba(139, 92, 246, 0.3);
+        border-radius: $radius-full;
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: $tertiary-light;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+    }
+
+    .project-content {
+      flex: 1;
+      margin-bottom: $spacing-lg;
+
+      .project-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: $spacing-sm;
+        color: $text-primary;
+      }
+
+      .project-description {
+        color: $text-muted;
+        line-height: 1.7;
+        margin-bottom: $spacing-md;
+        font-size: 0.95rem;
+      }
+
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $spacing-xs;
+
+        .tag {
+          padding: 4px 10px;
+          background: rgba(99, 102, 241, 0.08);
+          border: 1px solid rgba(99, 102, 241, 0.15);
+          border-radius: $radius-sm;
+          font-size: 0.7rem;
+          color: $primary-light;
+          font-weight: 500;
+          transition: all $transition-base;
+
+          &:hover {
+            background: rgba(99, 102, 241, 0.15);
+            border-color: rgba(99, 102, 241, 0.3);
+            transform: translateY(-2px);
+          }
+        }
+      }
+    }
+
+    .project-footer {
+      display: flex;
+      gap: $spacing-sm;
+      padding-top: $spacing-md;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+      .project-link {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: $spacing-xs;
+        padding: $spacing-sm $spacing-md;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: $radius-md;
+        color: $text-secondary;
+        text-decoration: none;
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition: all $transition-base;
+
+        svg {
+          flex-shrink: 0;
+          transition: transform $transition-base;
+        }
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.05);
+          border-color: rgba(99, 102, 241, 0.3);
+          color: $primary-light;
+          transform: translateY(-2px);
+
+          svg {
+            transform: scale(1.1);
+          }
+        }
+
+        &.primary {
+          background: rgba(99, 102, 241, 0.1);
+          border-color: rgba(99, 102, 241, 0.2);
+          color: $primary-light;
+
+          &:hover {
+            background: rgba(99, 102, 241, 0.15);
+            border-color: rgba(99, 102, 241, 0.4);
+          }
+        }
+      }
+    }
+  }
+
+  .empty-state {
+    @include glass(0.03, 10px);
+    text-align: center;
+    padding: $spacing-3xl;
+    border-radius: $radius-lg;
+
+    .empty-icon {
+      font-size: 4rem;
+      display: block;
+      margin-bottom: $spacing-lg;
+      opacity: 0.5;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: $spacing-sm;
+      color: $text-primary;
+    }
+
+    p {
+      color: $text-muted;
+    }
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.15);
+      opacity: 0.8;
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: $breakpoint-sm) {
+  .projects-section {
+    .filters-container {
+      .filter-btn {
+        font-size: 0.85rem;
+        padding: $spacing-xs $spacing-md;
+      }
+    }
+
+    .project-card {
+      padding: $spacing-lg;
+
+      .project-header {
+        .project-icon {
+          font-size: 2.5rem;
+        }
+      }
+
+      .project-content {
+        .project-title {
+          font-size: 1.25rem;
+        }
+
+        .project-description {
+          font-size: 0.9rem;
+        }
+      }
+    }
+
+    .featured-section .featured-title {
+      font-size: 1.25rem;
+    }
+  }
+}
+

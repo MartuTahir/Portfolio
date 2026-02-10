@@ -1,0 +1,7 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.portfolio-content {
+  position: relative;
+  z-index: 1;
+}

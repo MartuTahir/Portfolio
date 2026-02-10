@@ -1,1 +1,193 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global Styles - Glassmorphism Portfolio */
+@import './styles/variables';
+@import './styles/mixins';
+
+// Reset & Base Styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: $bg-primary;
+  color: $text-primary;
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+
+  // Animated gradient mesh background
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $gradient-mesh;
+    opacity: 0.3;
+    z-index: -1;
+    animation: meshMove 20s ease infinite;
+  }
+}
+
+@keyframes meshMove {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+}
+
+// Typography
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: $spacing-md;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+p {
+  margin-bottom: $spacing-sm;
+  color: $text-secondary;
+}
+
+a {
+  color: $primary-light;
+  text-decoration: none;
+  transition: color $transition-base;
+
+  &:hover {
+    color: $accent-light;
+  }
+}
+
+// Scrollbar styling
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $bg-secondary;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $primary;
+  border-radius: $radius-full;
+
+  &:hover {
+    background: $primary-light;
+  }
+}
+
+// Selection
+::selection {
+  background: $primary;
+  color: $text-primary;
+}
+
+// Utility classes
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-lg;
+
+  @include respond-to('lg') {
+    padding: 0 $spacing-xl;
+  }
+}
+
+.glass-card {
+  @include glass();
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  transition: all $transition-base;
+
+  &:hover {
+    @include hover-lift();
+    @include glow($primary);
+  }
+}
+
+.gradient-text {
+  @include gradient-text($gradient-primary);
+}
+
+.section {
+  padding: $spacing-3xl 0;
+  position: relative;
+}
+
+.btn {
+  padding: $spacing-sm $spacing-lg;
+  border-radius: $radius-md;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all $transition-base;
+  border: none;
+  font-size: 1rem;
+
+  &-primary {
+    background: $gradient-primary;
+    color: $text-primary;
+    @include glow($primary);
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px rgba($primary, 0.6);
+    }
+  }
+
+  &-glass {
+    @include glass();
+    color: $text-primary;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+  }
+}
+
+// Animations
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease forwards;
+}

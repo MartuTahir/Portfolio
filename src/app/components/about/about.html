@@ -1,0 +1,117 @@
+<section id="about" class="section about-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">👩‍💻 Sobre Mí</span>
+      <h2 class="section-title">
+        <span class="gradient-text">Conoce Mi Historia</span>
+      </h2>
+    </div>
+
+    <div class="about-content">
+      <div class="about-left">
+        <div class="profile-card glass-card">
+          <div class="profile-image">
+            <div class="image-placeholder">
+              <span class="placeholder-icon">👩‍💻</span>
+            </div>
+            <div class="glow-effect"></div>
+          </div>
+          <div class="profile-info">
+            <h3>Martina Tahir</h3>
+            <p class="role">Programadora</p>
+            <div class="location">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Córdoba, Argentina</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="achievements-grid">
+          @for (achievement of achievements; track achievement.label) {
+            <div class="achievement-card glass-card">
+              <span class="achievement-icon">{{ achievement.icon }}</span>
+              <h4 class="achievement-number">{{ achievement.number }}</h4>
+              <p class="achievement-label">{{ achievement.label }}</p>
+            </div>
+          }
+        </div>
+
+        <div class="interests-section glass-card">
+          <h3 class="interests-title">
+            <span class="gradient-text">💫 Mis Intereses</span>
+          </h3>
+          <div class="interests-grid">
+            @for (interest of interests; track interest.name) {
+              <div class="interest-item" [style.--interest-color]="interest.color">
+                <span class="interest-icon">{{ interest.icon }}</span>
+                <span class="interest-name">{{ interest.name }}</span>
+              </div>
+            }
+          </div>
+        </div>
+
+        <div class="soft-skills-section glass-card">
+          <h3 class="soft-skills-title">
+            <span class="gradient-text">✨ Habilidades Blandas</span>
+          </h3>
+          <div class="soft-skills-list">
+            @for (skill of softSkills; track skill.name) {
+              <div class="soft-skill-item">
+                <span class="soft-skill-icon">{{ skill.icon }}</span>
+                <span class="soft-skill-name">{{ skill.name }}</span>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+
+      <div class="about-right">
+        <div class="about-description">
+          <h3 class="description-title">Hola! 👋</h3>
+          <p>
+            Soy <strong>Martina Tahir</strong>, técnica en Informática, estudiante y desarrolladora web apasionada por crear
+            experiencias web únicas y funcionales. Mi viaje en el desarrollo web comenzó hace más de 3 años,
+            y desde entonces he estado en constante aprendizaje.
+          </p>
+          <p>
+            Me especializo en <strong>React</strong> (migrando al mundo de <strong>Angular</strong>) y tecnologías modernas.
+            Disfruto y sigo aprendiendo sobre <strong>C#</strong> y el desarrollo backend para
+            complementar mis habilidades como desarrolladora Full Stack.
+            Me encanta resolver problemas complejos y transformar ideas en
+            productos digitales que marquen la diferencia.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <h3 class="timeline-title">Mi Formación 📚</h3>
+          <div class="timeline-container">
+            @for (exp of experiences; track exp.year) {
+              <div class="timeline-item">
+                <div class="timeline-icon">{{ exp.icon }}</div>
+                <div class="timeline-content glass-card">
+                  <span class="timeline-year">{{ exp.year }}</span>
+                  <h4 class="timeline-job">{{ exp.title }}</h4>
+                  <p class="timeline-company">{{ exp.company }}</p>
+                  <p class="timeline-description">{{ exp.description }}</p>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+
+        <!-- <div class="cta-buttons">
+          <a href="#contact" class="btn btn-primary">¡Contáctame!</a>
+          <a href="#projects" class="btn btn-glass">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2zM22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/>
+            </svg>
+            Ver Proyectos
+          </a>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</section>
