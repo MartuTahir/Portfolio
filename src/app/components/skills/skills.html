@@ -6,34 +6,15 @@
         <span class="gradient-text">Tecnologías & Herramientas</span>
       </h2>
       <p class="section-description">
-        Estas son las tecnologías con las que trabajo y las herramientas que domino para crear proyectos increíbles.
+        Stack tecnológico que manejo en desarrollo web
       </p>
     </div>
 
     <div class="skills-grid">
-      @for (category of skillCategories; track category.title) {
-        <div class="skill-category fade-in-up">
-          <h3 class="category-title">{{ category.title }}</h3>
-          <div class="skills-list">
-            @for (skill of category.skills; track skill.name) {
-              <div class="skill-card glass-card">
-                <div class="skill-header">
-                  <div class="skill-info">
-                    <span class="skill-icon">{{ skill.icon }}</span>
-                    <span class="skill-name">{{ skill.name }}</span>
-                  </div>
-                  <span class="skill-level">{{ skill.level }}%</span>
-                </div>
-                <div class="progress-bar">
-                  <div
-                    class="progress-fill"
-                    [style.width.%]="skill.level"
-                    [style.background]="'linear-gradient(90deg, ' + skill.color + ', ' + skill.color + '88)'"
-                  ></div>
-                </div>
-              </div>
-            }
-          </div>
+      @for (skill of skills; track skill.name) {
+        <div class="skill-badge glass-card fade-in-up">
+          <span class="skill-icon">{{ skill.icon }}</span>
+          <span class="skill-name">{{ skill.name }}</span>
         </div>
       }
     </div>

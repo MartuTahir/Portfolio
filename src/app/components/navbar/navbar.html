@@ -8,11 +8,11 @@
       </a>
 
       <ul class="nav-links">
-        <li><a href="#home" class="nav-link active">Inicio</a></li>
-        <li><a href="#about" class="nav-link">Sobre Mí</a></li>
-        <li><a href="#skills" class="nav-link">Skills</a></li>
-        <li><a href="#projects" class="nav-link">Proyectos</a></li>
-        <li><a href="#contact" class="nav-link">Contacto</a></li>
+        <li><a href="#home" class="nav-link" [class.active]="activeSection === 'home'">Inicio</a></li>
+        <li><a href="#about" class="nav-link" [class.active]="activeSection === 'about'">Sobre Mí</a></li>
+        <li><a href="#skills" class="nav-link" [class.active]="activeSection === 'skills'">Skills</a></li>
+        <li><a href="#projects" class="nav-link" [class.active]="activeSection === 'projects'">Proyectos</a></li>
+        <li><a href="#contact" class="nav-link" [class.active]="activeSection === 'contact'">Contacto</a></li>
       </ul>
 
       <button class="btn-menu" (click)="toggleMenu()" [class.active]="menuOpen">
@@ -25,11 +25,11 @@
 
   <div class="mobile-menu" [class.open]="menuOpen">
     <ul class="mobile-nav-links">
-      <li><a href="#home" class="nav-link" (click)="toggleMenu()">Inicio</a></li>
-      <li><a href="#about" class="nav-link" (click)="toggleMenu()">Sobre Mí</a></li>
-      <li><a href="#skills" class="nav-link" (click)="toggleMenu()">Skills</a></li>
-      <li><a href="#projects" class="nav-link" (click)="toggleMenu()">Proyectos</a></li>
-      <li><a href="#contact" class="nav-link" (click)="toggleMenu()">Contacto</a></li>
+      <li><a href="#home" class="nav-link" [class.active]="activeSection === 'home'" (click)="toggleMenu()">Inicio</a></li>
+      <li><a href="#about" class="nav-link" [class.active]="activeSection === 'about'" (click)="toggleMenu()">Sobre Mí</a></li>
+      <li><a href="#skills" class="nav-link" [class.active]="activeSection === 'skills'" (click)="toggleMenu()">Skills</a></li>
+      <li><a href="#projects" class="nav-link" [class.active]="activeSection === 'projects'" (click)="toggleMenu()">Proyectos</a></li>
+      <li><a href="#contact" class="nav-link" [class.active]="activeSection === 'contact'" (click)="toggleMenu()">Contacto</a></li>
     </ul>
   </div>
 </nav>

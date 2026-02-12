@@ -129,8 +129,12 @@ a {
 }
 
 .section {
-  padding: $spacing-3xl 0;
+  padding: $spacing-xl 0;
   position: relative;
+
+  @include respond-to('md') {
+    padding: $spacing-3xl 0;
+  }
 }
 
 .btn {
