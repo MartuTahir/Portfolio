@@ -35,10 +35,9 @@ export class Projects {
       title: 'Cine Dashboard',
       description: 'Panel de administración para cine con gestión de productos, entradas y estadísticas en tiempo real. Backend con C# y SQL Server.',
       image: '🎬',
-      tags: ['React', 'C#', 'SQL Server', 'Chart.js', 'JWT'],
+      tags: ['C#', '.NET', 'SQL Server', 'Chart.js', 'JWT'],
       category: 'fullstack',
       github: 'https://github.com/MartuTahir/PIPORAMA_FRONTEND',
-      demo: '#',
       featured: true
     },
     {
@@ -94,7 +93,7 @@ export class Projects {
       category: 'frontend',
       github: 'https://github.com/MartuTahir/Portfolio',
       demo: 'https://portfoliotahirm.netlify.app/',
-      featured: true
+      featured: false
     },
     {
       id: 7,
@@ -107,6 +106,16 @@ export class Projects {
       demo: 'https://gif-search-app-mt.netlify.app/',
       featured: false
     },
+    {
+      id: 8,
+      title: 'Sistema de gestión de pedidos',
+      description: 'Aplicación para restaurante que permite gestionar productos, pedidos, carritos de compra y una cola de pedidos en tiempo real para la pantalla de cocina. Implementa persistencia dual (MongoDB + Redis) para garantizar velocidad y confiabilidad.',
+      image: '🍔',
+      tags: ['JavaScript', 'Tailwind', '.NET', 'MongoDB', 'Redis'],
+      category: 'web',
+      github: 'https://github.com/421483JMT/CrustaceoCascarudo_Back',
+      featured: true
+    }
   ];
 
   get filteredProjects() {
